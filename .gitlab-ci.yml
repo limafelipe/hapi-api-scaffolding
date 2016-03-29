@@ -1,0 +1,19 @@
+image: node:latest
+services:
+  - mongo:latest
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - export NODE_ENV=test
+  - npm install
+
+build:
+  script:
+    - npm run lint
+
+test:
+  script:
+    - npm run test
